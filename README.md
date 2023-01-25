@@ -1,9 +1,21 @@
 # Redis Project !!
 
-features - <br>
+**FEATURES** <br>
 
 -     🚀 Short url
 -     ☁️ Caching
 -     🎐 Fast
 
-Created by neeswebservices
+#
+
+### ~~Upcoming Feature~~
+
+- Creating custom short url
+- Editing and Deleting
+- Search Engine Optimized
+- Meta and social media indexing
+- Simple and easy to use Frontend
+
+#
+
+<center>Created by neeswebservices with 💗 in 10 Minutes. </center>
