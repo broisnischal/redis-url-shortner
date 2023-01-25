@@ -54,7 +54,6 @@ redisClient.on("end", function () {
 
 app.get("/", async (req, res, next) => {
   // res.sendFile(path.join(__dirname + "/public/index.html"));
-  // return res.send(req.device.type);
   return res.send(req.device.type);
 });
 
@@ -130,7 +129,6 @@ app.get("/:url", async (req, res, next) => {
     return res.redirect(longUrl);
   } else {
     const originalurl = await Url.findOne({ shortURL: url });
-    console.log(originalurl);
     if (!originalurl) return res.status(404).json({ err: "Short URL not found !" });
 
     await Url.findByIdAndUpdate(originalurl.id, {
