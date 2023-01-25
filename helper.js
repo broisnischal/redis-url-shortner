@@ -16,4 +16,11 @@ function generateShortUrl(length) {
   return result;
 }
 
-module.exports = generateShortUrl;
+const validateCustomURL = (customurl) => {
+  return String(customurl).match(/^[a-zA-Z0-9_.-]*$/);
+};
+
+module.exports = {
+  generateShortUrl,
+  validateCustomURL,
+};
