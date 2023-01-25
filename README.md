@@ -5,6 +5,8 @@
 -     🚀 Short url
 -     ☁️ Caching
 -     🎐 Fast
+-     🎐 Insights
+-     🎐 Memory Distribution
 
 #
 
