@@ -12,11 +12,11 @@
 
 ### ~~Upcoming Feature~~
 
-- Creating custom short url
-- Editing and Deleting
+- Creating custom short url ✅
+- Editing and Deleting ✅
 - Search Engine Optimized
 - Meta and social media indexing
-- Simple and easy to use Frontend
+- Simple and easy to use Frongoin
 
 #
 
