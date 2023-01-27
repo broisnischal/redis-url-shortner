@@ -10,8 +10,6 @@
 
 <br>
 
-#
-
 ## On _Development_
 
 <br>
