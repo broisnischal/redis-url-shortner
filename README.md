@@ -8,7 +8,19 @@
 -     👀 Insights
 -     💎 Memory Distribution
 
+<br>
+
 #
+
+## On _Development_
+
+<br>
+<br>
+
+-     Custom Browser Homepage 📃
+-     Shortcut Keys 🔏
+-     Desktop App 🖥
+-     User Authentication 🐱‍💻
 
 ### ~~Upcoming Feature~~
 
