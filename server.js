@@ -131,19 +131,28 @@ app.get("/:url", async (req, res, next) => {
     const originalurl = await Url.findOne({ shortURL: url });
     if (!originalurl) return res.status(404).json({ err: "Short URL not found !" });
 
-    await Url.findByIdAndUpdate(originalurl.id, {
-      $inc: { redirect: 1 },
-    });
+    await Url.findByIdAndUpdate(
+      { shortURL: url },
+      {
+        $inc: { redirect: 1 },
+      }
+    );
 
     if (req.device.type === "desktop") {
-      await Url.findByIdAndUpdate(originalurl.id, {
-        $inc: { desktopType: 1 },
-      });
+      await Url.findByIdAndUpdate(
+        { shortURL: url },
+        {
+          $inc: { desktopType: 1 },
+        }
+      );
     }
     if (req.device.type === "phone") {
-      await Url.findByIdAndUpdate(originalurl.id, {
-        $inc: { mobileType: 1 },
-      });
+      await Url.findByIdAndUpdate(
+        { shortURL: url },
+        {
+          $inc: { mobileType: 1 },
+        }
+      );
     }
     redisClient.set(url, originalurl.originalURL);
     return res.redirect(originalurl.originalURL);
