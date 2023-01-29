@@ -26,7 +26,8 @@
 - Editing and Deleting ✅
 - Search Engine Optimized
 - Meta and social media indexing
-- Simple and easy to use Frongoin
+- Simple and easy to use Frontend
+- Tags, Description
 
 #
 
