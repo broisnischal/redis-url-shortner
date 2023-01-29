@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
@@ -11,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bulma": "^0.9.4",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-device": "^0.4.2",
@@ -21,6 +23,12 @@
     "response-time": "^2.3.2"
   },
   "devDependencies": {
+    "@smui/button": "^7.0.0-beta.0",
+    "@smui/card": "^7.0.0-beta.0",
+    "@smui/data-table": "^7.0.0-beta.0",
+    "@smui/dialog": "^7.0.0-beta.0",
+    "@smui/linear-progress": "^7.0.0-beta.0",
+    "@smui/textfield": "^7.0.0-beta.0",
     "nodemon": "^2.0.20"
   }
 }

@@ -6,7 +6,7 @@ const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567
  * @param {number} length - Length to generate Random short URL.
  */
 
-function generateShortUrl(length) {
+export function generateShortUrl(length) {
   let result = "";
   const charactersLength = characters.length;
   for (let i = 0; i < length; i++) {
@@ -16,11 +16,6 @@ function generateShortUrl(length) {
   return result;
 }
 
-const validateCustomURL = (customurl) => {
+export const validateCustomURL = (customurl) => {
   return String(customurl).match(/^[a-zA-Z0-9_.-]*$/);
-};
-
-module.exports = {
-  generateShortUrl,
-  validateCustomURL,
 };
