@@ -9,8 +9,7 @@ urlRouter.get("/", async (req, res, next) => {
 
 urlRouter.post("/", generateRandom);
 
-urlRouter.post("/custom", generateCustom);
-
 urlRouter.get("/:url", redirectUrl);
+urlRouter.post("/custom", generateCustom);
 
 export default urlRouter;

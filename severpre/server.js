@@ -50,11 +50,11 @@ redisClient.on("end", function () {
   console.log("connection closed");
 });
 
+app.get("/url", urlRouter);
+
 app.get("/", async (req, res, next) => {
   return res.send(` You are from ${req.device.type}`);
 });
-
-app.get("url", urlRouter);
 
 app.all("*", (req, res, next) => {
   return res.status(404).json({ msg: "Request Not Found | 404 " });

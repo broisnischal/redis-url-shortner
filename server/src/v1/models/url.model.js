@@ -29,7 +29,7 @@ const urlSchema = new Schema(
 
 urlSchema.pre("save", async function (next) {
   this.model("Url")
-    .findOneAndDelete({ originalurl: this.originalurl })
+    .findOneAndDelete({ originalurl: this.originalurl, shortKey: this.shortKey })
     .exec((err, doc) => {
       if (err) return next(err);
       next();

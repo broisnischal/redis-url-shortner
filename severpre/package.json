@@ -17,10 +17,13 @@
     "express": "^4.18.2",
     "express-device": "^0.4.2",
     "ip": "^2.0.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.4",
     "morgan": "^1.10.0",
     "redis": "^4.5.1",
-    "response-time": "^2.3.2"
+    "response-time": "^2.3.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
   },
   "devDependencies": {
     "@smui/button": "^7.0.0-beta.0",
