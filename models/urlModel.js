@@ -27,6 +27,15 @@ const URLSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    stats: [
+      {
+        country: String,
+        unit: {
+          type: Number,
+          default: 0,
+        },
+      },
+    ],
   },
   {
     timestamps: true,
