@@ -4,7 +4,7 @@ import { createCustomShortUrl, createRandomShortUrl, redirect, info } from "./..
 const urlRouter = Router();
 
 urlRouter.route("/").get(info);
-urlRouter.route("/:shortkey").get(redirect);
+urlRouter.route("/:shortKey").get(redirect);
 urlRouter.route("/").post(createRandomShortUrl);
 urlRouter.post("/custom", createCustomShortUrl);
 

@@ -1,52 +1,78 @@
 import asyncHandler from "express-async-handler";
-import { generateShortUrlString, generateUniqueString, validateCustomURL, validateUrl } from "./../utils/function.js";
+import { generateUniqueString, validateCustomURL, validateUrl } from "./../utils/function.js";
 import Url from "../models/url.model.js";
+import { redisClient } from "./../../../app.js";
+
+const EXPI = process.env.REDIS_EXPIRATION || 1000;
 
 export const info = asyncHandler(async (req, res, next) => {
   res.send("V1 of Snevt url shortner");
 });
 
 export const redirect = asyncHandler(async (req, res, next) => {
-  const { shortkey } = req.params;
-  console.log(shortkey);
+  const shortKey = req.params.shortKey;
+
+  const data = await redisClient.get(shortKey);
+
+  if (data) {
+    return res.redirect(data);
+  } else {
+    if (!shortKey) return res.status(400).json({ message: "Please pass valid request" });
+    const uri = await Url.findOne({ shortKey });
+
+    if (!uri) return res.status(404).json({ message: "No such Redirection found on server" });
+    await redisClient.setEx(shortKey, EXPI, uri.originalurl);
+    return res.redirect(uri.originalurl);
+  }
 });
 
 export const createRandomShortUrl = asyncHandler(async (req, res, next) => {
   const { originalurl } = req.body;
 
   if (!originalurl) return res.status(400).json({ message: "Please submit Original URL" });
-
   if (!validateUrl(originalurl)) return res.status(400).json({ message: "Please submit valid URL" });
 
-  const shortkey = generateUniqueString(5);
+  const data = await redisClient.get(originalurl);
 
-  const newUrl = await Url.create({
-    originalurl,
-    shortKey: shortkey,
-  });
+  if (data) {
+    return res.status(200).json({ shortKey: data });
+  } else {
+    const shortkey = generateUniqueString(5);
+    const newUrl = await Url.create({
+      originalurl,
+      shortKey: shortkey,
+    });
 
-  return res.status(200).json(newUrl);
+    await redisClient.setEx(originalurl, EXPI, shortkey);
+    return res.status(200).json(newUrl);
+  }
 });
 
 export const createCustomShortUrl = asyncHandler(async (req, res, next) => {
   const { originalurl, customshorturl } = req.body;
 
-  if (!originalurl) return res.status(400).json({ message: "Please submit Original URL" });
-  if (!customshorturl) return res.status(400).json({ message: "Please submit custom short URL" });
+  const data = await redisClient.get(originalurl);
 
-  const isExist = await Url.findOne({ shortKey: customshorturl });
+  if (data) {
+    return res.json({ shortKey: data });
+  } else {
+    if (!originalurl) return res.status(400).json({ message: "Please submit Original URL" });
+    if (!customshorturl) return res.status(400).json({ message: "Please submit custom short URL" });
 
-  if (isExist) return res.status(400).json({ message: "Custom Name already Taken." });
+    const isExist = await Url.findOne({ shortKey: customshorturl });
 
-  if (!validateUrl(originalurl)) return res.status(400).json({ message: "Please submit valid URL" });
+    if (isExist) return res.status(400).json({ message: "Custom Name already Taken." });
 
-  if (customshorturl.length > 15 || customshorturl.length < 3) return res.status(400).json({ message: "Length must be beetween 3 to 15" });
-  if (!validateCustomURL(customshorturl)) return res.status(400).json({ message: "Please submit valid Custom Url Parameter" });
+    if (!validateUrl(originalurl)) return res.status(400).json({ message: "Please submit valid URL" });
 
-  const newUrl = await Url.create({
-    originalurl,
-    shortKey: customshorturl,
-  });
+    if (customshorturl.length > 15 || customshorturl.length < 3) return res.status(400).json({ message: "Length must be beetween 3 to 15" });
+    if (!validateCustomURL(customshorturl)) return res.status(400).json({ message: "Please submit valid Custom Url Parameter" });
 
-  return res.status(200).json(newUrl);
+    const newUrl = await Url.create({
+      originalurl,
+      shortKey: customshorturl,
+    });
+    await redisClient.setEx(originalurl, EXPI, customshorturl);
+    return res.status(200).json(newUrl);
+  }
 });
