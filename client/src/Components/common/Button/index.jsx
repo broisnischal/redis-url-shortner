@@ -1,7 +1,7 @@
 import "./index.scss";
 
 const Button = (props) => {
-  return <button>{props?.value || "Generate"}</button>;
+  return <button className="customButton">{props?.value || "Generate"}</button>;
 };
 
 export default Button;

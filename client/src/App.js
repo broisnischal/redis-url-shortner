@@ -9,14 +9,7 @@ function App() {
 
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <div className="App">
-            <Input placeholder="Enter a URL" />
-            <Button />
-          </div>
-        }></Route>
+      <Route path="/" element={<Input />}></Route>
       <Route path="/:shortkey" element={<Navigate />} />
     </Routes>
   );
