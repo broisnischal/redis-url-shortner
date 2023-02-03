@@ -3,7 +3,7 @@
 ##### **FEATURES To Implement**
 
 - [ ] Secure the App User Authentication 🐱‍💻 🎩
-- [] Add Database persistence
+- [ ] Add Database persistence
 - [x] Broadcast event notifications
 - [✅ ] 🚀 Short url
 - [x] 👀 Insights
