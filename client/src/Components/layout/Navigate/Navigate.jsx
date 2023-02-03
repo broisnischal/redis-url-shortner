@@ -19,7 +19,7 @@ const Navigate = () => {
     redirectClient();
   }, [shortkey]);
 
-  return <div>{err ? err : <p>Loading...</p>}</div>;
+  return <div>{err ? err : <h4 style={{ textAlign: "center" }}>Proceding to webpage ...</h4>}</div>;
 };
 
 export default Navigate;
