@@ -1,5 +1,5 @@
 ## Snivt - URI Shortner 💨
-
+<br/>
 
 ##### **FEATURES To Implement**
 
@@ -21,4 +21,4 @@
 
 #
 
-<center>Created by neeswebservices with ☕ in 10 Minutes. </center>
+<center>&copy; neeswebservices | Made with ☕ </center>
