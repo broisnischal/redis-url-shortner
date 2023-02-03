@@ -1,10 +1,24 @@
 import "./App.css";
-
+import Button from "./Components/common/Button";
+import Input from "./Components/common/Input/Input";
+import { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Navigate from "./Components/layout/Navigate/Navigate";
 function App() {
+  // const [val, setVal] = useState("");
+
   return (
-    <div className="App">
-      <input type="text" id="longurl" placeholder="Enter Long Url " />
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <div className="App">
+            <Input placeholder="Enter a URL" />
+            <Button />
+          </div>
+        }></Route>
+      <Route path="/:shortkey" element={<Navigate />} />
+    </Routes>
   );
 }
 

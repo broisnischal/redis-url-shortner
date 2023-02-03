@@ -15,14 +15,14 @@ export const redirect = asyncHandler(async (req, res, next) => {
   const data = await redisClient.get(shortKey);
 
   if (data) {
-    return res.redirect(data);
+    return res.json(data);
   } else {
     if (!shortKey) return res.status(400).json({ message: "Please pass valid request" });
     const uri = await Url.findOne({ shortKey });
 
     if (!uri) return res.status(404).json({ message: "No such Redirection found on server" });
     await redisClient.setEx(shortKey, EXPI, uri.originalurl);
-    return res.redirect(uri.originalurl);
+    return res.json(uri);
   }
 });
 
