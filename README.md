@@ -1,33 +1,22 @@
 # Redis Project !!
 
-**FEATURES** <br>
+##### **FEATURES To Implement**
 
--     🚀 Short url
--     ☁️ Caching
--     🔥 Fast
--     👀 Insights
--     💎 Memory Distribution
-
-<br>
-
-## On _Development_
-
-<br>
-<br>
-
--     Custom Browser Homepage 📃
--     Shortcut Keys 🔏
--     Desktop App 🖥
--     User Authentication 🐱‍💻
-
-### ~~Upcoming Feature~~
-
-- Creating custom short url ✅
-- Editing and Deleting ✅
-- Search Engine Optimized
-- Meta and social media indexing
-- Simple and easy to use Frontend
-- Tags, Description
+- [ ] Secure the App User Authentication 🐱‍💻 🎩
+- [] Add Database persistence
+- [x] Broadcast event notifications
+- [✅ ] 🚀 Short url
+- [x] 👀 Insights
+- [✅] 💎 Memory Distribution
+- [x] Custom Browser Homepage 📃
+- [x] Shortcut Keys 🔏
+- [✅] ☁️ Caching
+- [x] Desktop App 🖥
+- [✅] 🔥 Fast
+- [✅] Editing and Deleting
+- [ ] Meta and social media indexing
+- [ ] Search Engine Optimized
+- [☝️] Tags, Description
 
 #
 

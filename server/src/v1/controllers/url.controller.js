@@ -29,8 +29,8 @@ export const redirect = asyncHandler(async (req, res, next) => {
 export const createRandomShortUrl = asyncHandler(async (req, res, next) => {
   const { originalurl } = req.body;
 
-  if (!originalurl) return res.status(400).json({ message: "Please submit Original URL" });
-  if (!validateUrl(originalurl)) return res.status(400).json({ message: "Please submit valid URL" });
+  if (!originalurl) return res.status(400).json({ message: "Please enter Original ( Long ) URL 😉" });
+  if (!validateUrl(originalurl)) return res.status(400).json({ message: "Please submit valid URL 😞" });
 
   const data = await redisClient.get(originalurl);
 

@@ -31,7 +31,16 @@ const Input = () => {
       <div className="center">
         <p>Create yOur Blazingly Fast SHORT URL Here 🔥</p>
         <h4 className="error">{err}</h4>
-        <input type="text" onChange={(e) => setVal(e.target.value)} className="input" value={val} placeholder="Enter a URL" />
+        <input
+          type="text"
+          onChange={(e) => {
+            setVal(e.target.value);
+            setErr("");
+          }}
+          className="input"
+          value={val}
+          placeholder="Enter a URL"
+        />
         {loading ? (
           <button onClick={generate} disabled>
             Generate
