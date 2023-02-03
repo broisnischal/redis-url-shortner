@@ -1,4 +1,5 @@
-# Redis Project !!
+## Snivt - URI Shortner 💨
+
 
 ##### **FEATURES To Implement**
 
