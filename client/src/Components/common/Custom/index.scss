@@ -1,0 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300,regular,500,600,700);
+.input {
+  padding: 20px;
+  width: min(600px, 90%);
+  font-size: 17px;
+  outline: none;
+  border: 1px solid #333;
+  border-radius: 10px;
+}
+
+p {
+  letter-spacing: 1px;
+  font-size: 30px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Quicksand;
+  flex-direction: column;
+}

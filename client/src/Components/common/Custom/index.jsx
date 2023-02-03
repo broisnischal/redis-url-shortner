@@ -1,9 +1,10 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import "./index.scss";
 import axios from "axios";
 
-const Input = () => {
+const Custom = () => {
   const [val, setVal] = useState("");
+  const [custom, setCustom] = useState("");
   const [err, setErr] = useState("");
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
@@ -11,13 +12,15 @@ const Input = () => {
   const generate = async () => {
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:8000/uri", {
+      const res = await axios.post("http://localhost:8000/uri/custom", {
         originalurl: val,
+        customshorturl: custom,
       });
       setData(res.data);
       setErr("");
       navigator.clipboard.writeText(`${window.location.origin}/${res.data.shortKey}`);
       setVal("");
+      setCustom("");
     } catch (error) {
       console.log(error);
       setErr(error.response.data.message);
@@ -41,7 +44,17 @@ const Input = () => {
           value={val}
           placeholder="*Enter a URL "
         />
-
+        <input
+          style={{ marginTop: "10px" }}
+          type="text"
+          onChange={(e) => {
+            setCustom(e.target.value);
+            setErr("");
+          }}
+          className="input"
+          value={custom}
+          placeholder="Enter Custom Url Parameter "
+        />
         {loading ? (
           <button onClick={generate} disabled>
             Generate
@@ -61,4 +74,4 @@ const Input = () => {
   );
 };
 
-export default Input;
+export default Custom;
