@@ -3,20 +3,20 @@
 ##### **FEATURES To Implement**
 
 - [ ] Secure the App User Authentication 🐱‍💻 🎩
+- [x] 💎 Memory Distribution
 - [ ] Add Database persistence
 - [x] Broadcast event notifications
-- [✅ ] 🚀 Short url
+- [x] 🚀 Short url
 - [x] 👀 Insights
-- [✅] 💎 Memory Distribution
 - [x] Custom Browser Homepage 📃
 - [x] Shortcut Keys 🔏
-- [✅] ☁️ Caching
+- [x] ☁️ Caching
 - [x] Desktop App 🖥
-- [✅] 🔥 Fast
-- [✅] Editing and Deleting
+- [x] 🔥 Fast
+- [x] Editing and Deleting
 - [ ] Meta and social media indexing
 - [ ] Search Engine Optimized
-- [☝️] Tags, Description
+- [x] Tags, Description
 
 #
 
