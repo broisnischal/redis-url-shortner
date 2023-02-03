@@ -5,15 +5,15 @@
 - [ ] Secure the App User Authentication 🐱‍💻 🎩
 - [x] 💎 Memory Distribution
 - [ ] Add Database persistence
-- [x] Broadcast event notifications
+- [ ] Broadcast event notifications
 - [x] 🚀 Short url
 - [x] 👀 Insights
-- [x] Custom Browser Homepage 📃
-- [x] Shortcut Keys 🔏
+- [ ] Custom Browser Homepage 📃
+- [ ] Shortcut Keys 🔏
 - [x] ☁️ Caching
-- [x] Desktop App 🖥
+- [ ] Desktop App 🖥
 - [x] 🔥 Fast
-- [x] Editing and Deleting
+- [ ] Editing and Deleting
 - [ ] Meta and social media indexing
 - [ ] Search Engine Optimized
 - [x] Tags, Description
