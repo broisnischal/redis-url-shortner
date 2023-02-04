@@ -1,13 +1,13 @@
 import { Router } from "express";
-import { loginUser, registerUser } from "../controllers/user.controller";
-const router = Router();
+import { loginUser, registerUser } from "../controllers/user.controller.js";
+const userRouter = Router();
 
 /* GET users listing. */
-router.get("/", function (req, res, next) {
+userRouter.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
 
-router.route("/login").post(loginUser);
-router.route("/register").post(registerUser);
+userRouter.post("/login", loginUser);
+userRouter.route("/register").post(registerUser);
 
-export default router;
+export default userRouter;
