@@ -36,7 +36,7 @@ const app = express();
 export const redisClient = Redis.createClient({
   host: process.env.HOST,
   port: process.env.PORT,
-  password: process.env.password,
+  password: process.env.PASSWORD,
 });
 
 (async () => {
