@@ -33,7 +33,11 @@ const app = express();
  * Redis Database configuration.
  */
 
-export const redisClient = Redis.createClient();
+export const redisClient = Redis.createClient({
+  host: process.env.HOST,
+  port: process.env.PORT,
+  password: process.env.password,
+});
 
 (async () => {
   await redisClient.connect();
