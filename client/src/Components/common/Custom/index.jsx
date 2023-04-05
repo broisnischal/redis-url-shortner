@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./index.scss";
 import axios from "axios";
+import { API } from "../../../store";
 
 const Custom = () => {
   const [val, setVal] = useState("");
@@ -12,7 +13,7 @@ const Custom = () => {
   const generate = async () => {
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:8000/uri/custom", {
+      const res = await axios.post(`${API}/uri/custom`, {
         originalurl: val,
         customshorturl: custom,
       });

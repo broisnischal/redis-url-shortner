@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import "./index.scss";
 import axios from "axios";
+import { API } from "../../../store";
 
 const Input = () => {
   const [val, setVal] = useState("");
@@ -11,7 +12,7 @@ const Input = () => {
   const generate = async () => {
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:8000/uri", {
+      const res = await axios.post(`${API}/uri`, {
         originalurl: val,
       });
       setData(res.data);

@@ -10,7 +10,7 @@ const Navigate = () => {
   useEffect(() => {
     const redirectClient = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/uri/${shortkey}`);
+        const res = await axios.get(`${API}/uri/${shortkey}`);
         window.location.replace(res.data);
       } catch (error) {
         setErr(error.response.data.message);
