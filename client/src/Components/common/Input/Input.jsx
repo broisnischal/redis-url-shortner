@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import "./index.scss";
 import axios from "axios";
 import { API } from "../../../store";
