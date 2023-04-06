@@ -34,9 +34,9 @@ const app = express();
  */
 
 export const redisClient = Redis.createClient({
-  host: process.env.HOST,
-  port: process.env.PORT,
-  password: process.env.PASSWORD,
+  host: "redis-15019.c264.ap-south-1-1.ec2.cloud.redislabs.com:15019",
+  // port: process.env.PORT,
+  password: "sfDFus9GPqO6xM4CzRPZhRQSo6K1EiS9",
   username: "default",
 });
 
