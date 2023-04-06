@@ -8,6 +8,7 @@ const Input = () => {
   const [err, setErr] = useState("");
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
+  console.log(API);
 
   const generate = async () => {
     try {

@@ -1,13 +1,15 @@
 import "./App.css";
-import Button from "./Components/common/Button";
 import Input from "./Components/common/Input/Input";
-import { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navigate from "./Components/layout/Navigate/Navigate";
 import Custom from "./Components/common/Custom";
+import { API } from "./store";
 function App() {
   // const [val, setVal] = useState("");
 
+  console.log(process.env);
+
+  console.log(API);
   return (
     <Routes>
       <Route path="/" element={<Input />}></Route>
