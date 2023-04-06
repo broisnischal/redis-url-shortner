@@ -33,29 +33,50 @@ const app = express();
  * Redis Database configuration.
  */
 
-export const redisClient = Redis.createClient({
-  host: "redis-15019.c264.ap-south-1-1.ec2.cloud.redislabs.com:15019",
-  // port: process.env.PORT,
-  password: "sfDFus9GPqO6xM4CzRPZhRQSo6K1EiS9",
-  username: "default",
+import { createClient } from "redis";
+
+export const redisClient = createClient({
+  url: process.env.REDIS_URL,
 });
 
 (async () => {
+  // Connect to your internal Redis instance using the REDIS_URL environment variable
+  // The REDIS_URL is set to the internal Redis URL e.g. redis://red-343245ndffg023:6379
+
+  redisClient.on("error", (err) => console.log("Redis Client Error", err));
+
   await redisClient.connect();
+
+  // Send and retrieve some values
+  await redisClient.set("key", "node redis");
+  const value = await redisClient.get("key");
+
+  console.log("found value: ", value);
 })();
 
-redisClient.on("ready", () => {
-  console.log("Connected to Redis Server !");
-});
+// export const redisClient = Redis.createClient({
+//   host: "redis://red-cgn4upfdvk4k017tqlq0:6379",
+//   // port: process.env.PORT,
+//   password: "sfDFus9GPqO6xM4CzRPZhRQSo6K1EiS9",
+//   username: "default",
+// });
 
-redisClient.on("error", (err) => {
-  console.log(err);
-  console.log("Error in the Connection", +err.message);
-});
+// (async () => {
+//   await redisClient.connect();
+// })();
 
-redisClient.on("end", function () {
-  console.log("connection closed");
-});
+// redisClient.on("ready", () => {
+//   console.log("Connected to Redis Server !");
+// });
+
+// redisClient.on("error", (err) => {
+//   console.log(err);
+//   console.log("Error in the Connection", +err.message);
+// });
+
+// redisClient.on("end", function () {
+//   console.log("connection closed");
+// });
 // redisClient.setEx("name", 15, "nischal");
 
 /**
