@@ -14,7 +14,6 @@ function App() {
     <Routes>
       <Route path="/" element={<Input />}></Route>
       <Route path="/custom" element={<Custom />}></Route>
-
       <Route path="/:shortkey" element={<Navigate />} />
     </Routes>
   );

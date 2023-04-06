@@ -37,25 +37,26 @@ export const redisClient = Redis.createClient({
   host: process.env.HOST,
   port: process.env.PORT,
   password: process.env.PASSWORD,
+  username: "default",
 });
 
 (async () => {
   await redisClient.connect();
 })();
 
-// redisClient.setEx("name", 15, "nischal");
-
 redisClient.on("ready", () => {
   console.log("Connected to Redis Server !");
 });
 
 redisClient.on("error", (err) => {
+  console.log(err);
   console.log("Error in the Connection", +err.message);
 });
 
 redisClient.on("end", function () {
   console.log("connection closed");
 });
+// redisClient.setEx("name", 15, "nischal");
 
 /**
  * Setting middlewares for APP

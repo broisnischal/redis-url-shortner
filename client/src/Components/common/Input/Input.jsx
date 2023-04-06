@@ -8,7 +8,6 @@ const Input = () => {
   const [err, setErr] = useState("");
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
-  console.log(API);
 
   const generate = async () => {
     try {
@@ -31,7 +30,8 @@ const Input = () => {
   return (
     <>
       <div className="center">
-        <p>Create yOur Blazingly Fast SHORT URL Here 🔥</p>
+        <p>Create yOur Blazingly Fast SHORT URL Here 🔥 </p>
+        <a href="/custom">Custom</a>
         <h4 className="error">{err}</h4>
         <input
           type="text"
@@ -45,7 +45,7 @@ const Input = () => {
         />
 
         {loading ? (
-          <button onClick={generate} disabled>
+          <button className="button" onClick={generate} disabled>
             Generate
           </button>
         ) : (
